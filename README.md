@@ -1,6 +1,20 @@
-frontend-nanodegree-arcade-game
+Udacity Frontend Nanodegree Arcade Game
 ===============================
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+**Description**
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+This 'froger-like' game challenges players to move up screen to the water on the other side while dodging enemy bugs.
+
+**Getting Started**
+
+1. Download all the files from the repository
+2. Find index.html in the main directory.
+3. Double click index.html and it will open in your prefered browser.
+4. NOTE - Files included with the download, located in the: images,js, and css directories are required to play.
+
+**How to Play**
+
+Using the arrow keys on your keyboard move the charator up, down, left, or right.  You're goal is to reach the water while avoiding the bugs.  When you've reached your goal you'll be braught back the the starting point and 1 point, or 'times crossed' will increase by one.  If you choose to keep going simply move up one space and continue your journey.  You're goal is to make it to the water as many times in a row as possible without getting hit by bugs.  If a bug hits you, you start over and your times crossed goes back to zero.  Try to earn as points as possible without getting hit by bugs!!!
+
+**Special Thanks**
+To Matthew Cranford for creating a great tutorial that helped me get started.
