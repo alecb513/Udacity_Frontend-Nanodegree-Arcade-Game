@@ -8,7 +8,6 @@ window.allowedKeys = {
 
 let randomSpeed = Math.random() * (.15 - 0.03) + 0.03;
 let randomStart = Math.floor(Math.random() * (-4 - -1)) + -1;
-
 const allowedKeys = window.allowedKeys;
 const allEnemies = [];
 
@@ -32,13 +31,13 @@ class Player extends Entity {
         this.y = 4.5;
     }
     update(dt) {
-        if (player.x > 5) {
-            player.x = 0;
+        if (player.x > 4) {
+            player.x = 4;
         }
         if (player.x < 0) {
-            player.x = 5;
+            player.x = 0;
         }
-        if (player.y < -0.5) {
+        if (player.y < -0.5) {//winning condition
             player.y = 4.5;
             timesCrossed += 1;
             document.getElementById('score').innerHTML = timesCrossed;
@@ -47,7 +46,7 @@ class Player extends Entity {
         if (player.y > 4.5) {
             player.y = 4.5;
         }
-        for (let enemy of allEnemies) {
+        for (let enemy of allEnemies) {//loosing condition
             if (Math.abs(this.y - enemy.y) < .25 && Math.abs(this.x - enemy.x) < .25) {//https://romeyb76.github.io/Udacity-Classic-Arcade-Game/
                 this.x = 2;
                 this.y = 4.5;
