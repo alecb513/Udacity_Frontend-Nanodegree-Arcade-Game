@@ -1,3 +1,4 @@
+'use strict';
 
 window.allowedKeys = {
     37: 'left',
@@ -13,6 +14,7 @@ const allEnemies = [];
 
 let timesCrossed = 0;
 let scoreBoard = document.getElementById('score');
+let modal = document.querySelector('modal');
 
 class Entity {
     constructor(x, y) {
@@ -31,20 +33,24 @@ class Player extends Entity {
         this.y = 4.5;
     }
     update(dt) {
-        if (player.x > 4) {
-            player.x = 4;
+        if (this.x > 4) {
+            this.x = 4;
         }
-        if (player.x < 0) {
-            player.x = 0;
+        if (this.x < 0) {
+            this.x = 0;
         }
-        if (player.y < -0.5) {//winning condition
-            player.y = 4.5;
+        if (this.y < -0.5) {//winning condition
+            this.y = 4.5;
             timesCrossed += 1;
             document.getElementById('score').innerHTML = timesCrossed;
-            console.log('points ' + timesCrossed);
+            modal.style.display = 'block';
+            modal.classList.add('modalOn');
+            document.getElementById('modalOff').innerHTML = 'You Made It!'
+          
+                      
         }
-        if (player.y > 4.5) {
-            player.y = 4.5;
+        if (this.y > 4.5) {
+            this.y = 4.5;
         }
         for (let enemy of allEnemies) {//loosing condition
             if (Math.abs(this.y - enemy.y) < .25 && Math.abs(this.x - enemy.x) < .25) {//https://romeyb76.github.io/Udacity-Classic-Arcade-Game/
@@ -64,6 +70,7 @@ class Player extends Entity {
                 break;
             case 'up':
                 this.y -= 1;
+                hide();
                 break;
             case 'right':
                 this.x += 1;
@@ -108,6 +115,12 @@ function assignSpeed() {
         allEnemies[i].x = randomSpeed;
         console.log(i);
     }
+}
+
+//hide modal. Called on line 73
+function hide () {
+    modal.classList.remove('modalOn');
+    document.getElementById('modalOff').innerHTML = '';
 }
 
 document.addEventListener('keyup', function (e) {
